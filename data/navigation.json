@@ -1,0 +1,40 @@
+{
+  "logo": "~/vamsee9201",
+  "items": [
+    {
+      "label": "/home",
+      "href": "#hero",
+      "command": "cd ~"
+    },
+    {
+      "label": "/about",
+      "href": "#about",
+      "command": "cat about.md"
+    },
+    {
+      "label": "/experience",
+      "href": "#experience",
+      "command": "ps aux"
+    },
+    {
+      "label": "/skills",
+      "href": "#skills",
+      "command": "ls skills/"
+    },
+    {
+      "label": "/projects",
+      "href": "#projects",
+      "command": "ls projects/"
+    },
+    {
+      "label": "/education",
+      "href": "#education",
+      "command": "cat education.log"
+    },
+    {
+      "label": "/contact",
+      "href": "#contact",
+      "command": "mail -s hello"
+    }
+  ]
+}

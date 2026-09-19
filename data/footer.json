@@ -1,0 +1,12 @@
+{
+  "copyright": "Vamsee Krishna Kotha",
+  "year": "2026",
+  "tagline": "Built with vanilla HTML/CSS/JS. No frameworks harmed.",
+  "links": [
+    {
+      "label": "Email",
+      "url": "mailto:vamseekrishna9201@gmail.com",
+      "icon": "email"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "siteName": "Vamsee Krishna Kotha | Terminal Portfolio",
+  "siteTitle": "vamsee9201@portfolio:~$",
+  "prompt": "visitor@portfolio:~$",
+  "hostname": "portfolio",
+  "username": "vamsee9201",
+  "theme": {
+    "primary": "#00ff41",
+    "background": "#0d1117",
+    "surface": "#161b22",
+    "border": "#30363d",
+    "textPrimary": "#e6edf3",
+    "textSecondary": "#8b949e",
+    "accent": "#58a6ff",
+    "error": "#f85149",
+    "warning": "#d29922"
+  },
+  "matrixRain": true,
+  "bootSequence": true,
+  "soundEffects": false
+}

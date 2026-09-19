@@ -1,0 +1,289 @@
+{
+  "heading": "$ find ~/projects -type d -maxdepth 1",
+  "projects": [
+    {
+      "name": "claude-agent-sdk-cloud-sessions",
+      "description": "GitHub repository: claude-agent-sdk-cloud-sessions",
+      "technologies": [
+        "HTML",
+        "Python",
+        "Dockerfile"
+      ],
+      "stars": 3,
+      "forks": 0,
+      "language": "HTML",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/claude-agent-sdk-cloud-sessions",
+      "isNew": false
+    },
+    {
+      "name": "surecast",
+      "description": "Full-featured application built as a learning exercise",
+      "technologies": [
+        "Python"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/surecast",
+      "isNew": false
+    },
+    {
+      "name": "text-analysis-using-nlp-streamlit",
+      "description": "Personal project for exploring modern development practices",
+      "technologies": [
+        "Python"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/text-analysis-using-nlp-streamlit",
+      "isNew": false
+    },
+    {
+      "name": "fraud-detection-in-python",
+      "description": "Hands-on learning experience with modern frameworks",
+      "technologies": [
+        "Jupyter Notebook"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/fraud-detection-in-python",
+      "isNew": false
+    },
+    {
+      "name": "creditcardfrauddetection-mlops",
+      "description": "Learning project built with modern web technologies",
+      "technologies": [
+        "Jupyter Notebook",
+        "Python",
+        "HTML",
+        "CSS",
+        "Dockerfile"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/creditcardfrauddetection-mlops",
+      "isNew": false
+    },
+    {
+      "name": "modelcard",
+      "description": "Hands-on learning experience with modern frameworks",
+      "technologies": [
+        "Python"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/modelcard",
+      "isNew": false
+    },
+    {
+      "name": "infohunter",
+      "description": "Personal project for exploring modern development practices",
+      "technologies": [
+        "Python"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/infohunter",
+      "isNew": false
+    },
+    {
+      "name": "goodreads_etl_pipeline",
+      "description": "Practice application demonstrating full-stack development skills",
+      "technologies": [
+        "Python"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/goodreads_etl_pipeline",
+      "isNew": false
+    },
+    {
+      "name": "driftguard",
+      "description": "Comprehensive project exploring software design patterns",
+      "technologies": [
+        "Python",
+        "Dockerfile"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/driftguard",
+      "isNew": false
+    },
+    {
+      "name": "ai_soc",
+      "description": "Educational project for mastering software architecture",
+      "technologies": [
+        "Python",
+        "HTML",
+        "Shell",
+        "PowerShell",
+        "Dockerfile",
+        "Zeek",
+        "Batchfile"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/ai_soc",
+      "isNew": false
+    },
+    {
+      "name": "drivesafe",
+      "description": "Practice repository for exploring advanced features",
+      "technologies": [],
+      "stars": 0,
+      "forks": 0,
+      "language": "",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/drivesafe",
+      "isNew": false
+    },
+    {
+      "name": "databricks-s3-pipeline",
+      "description": "GitHub repository: databricks-s3-pipeline",
+      "technologies": [
+        "Jupyter Notebook"
+      ],
+      "stars": 1,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/databricks-s3-pipeline",
+      "isNew": false
+    },
+    {
+      "name": "claude-agent-sdk-vertex-ai",
+      "description": "GitHub repository: claude-agent-sdk-vertex-ai",
+      "technologies": [
+        "Python"
+      ],
+      "stars": 1,
+      "forks": 0,
+      "language": "Python",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/claude-agent-sdk-vertex-ai",
+      "isNew": false
+    },
+    {
+      "name": "lift-simulation",
+      "description": "GitHub repository: lift-simulation",
+      "technologies": [
+        "HTML",
+        "JavaScript"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "HTML",
+      "liveUrl": "https://lift-simulation-ecru.vercel.app",
+      "githubUrl": "https://github.com/vamsee9201/lift-simulation",
+      "isNew": false
+    },
+    {
+      "name": "voxraven-app",
+      "description": "The AI agent ",
+      "technologies": [
+        "TypeScript",
+        "CSS",
+        "JavaScript"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "TypeScript",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/voxraven-app",
+      "isNew": false
+    },
+    {
+      "name": "pyspark-showcase",
+      "description": "GitHub repository: pyspark-showcase",
+      "technologies": [
+        "Jupyter Notebook",
+        "Python"
+      ],
+      "stars": 1,
+      "forks": 0,
+      "language": "Jupyter Notebook",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/pyspark-showcase",
+      "isNew": false
+    },
+    {
+      "name": "data-science-adk-agent",
+      "description": "GitHub repository: data-science-adk-agent",
+      "technologies": [
+        "Python",
+        "JavaScript",
+        "CSS",
+        "HTML",
+        "Makefile"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/data-science-adk-agent",
+      "isNew": false
+    },
+    {
+      "name": "lean-rag",
+      "description": "GitHub repository: lean-rag",
+      "technologies": [
+        "Python",
+        "Shell"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "Python",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/lean-rag",
+      "isNew": false
+    },
+    {
+      "name": "enterpriseclaw",
+      "description": "GitHub repository: enterpriseclaw",
+      "technologies": [
+        "TypeScript",
+        "Shell",
+        "JavaScript",
+        "Dockerfile"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "TypeScript",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/enterpriseclaw",
+      "isNew": false
+    },
+    {
+      "name": "zenith-sky",
+      "description": "GitHub repository: zenith-sky",
+      "technologies": [
+        "TypeScript",
+        "JavaScript"
+      ],
+      "stars": 0,
+      "forks": 0,
+      "language": "TypeScript",
+      "liveUrl": "",
+      "githubUrl": "https://github.com/vamsee9201/zenith-sky",
+      "isNew": false
+    }
+  ]
+}

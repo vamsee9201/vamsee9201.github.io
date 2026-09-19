@@ -1,0 +1,69 @@
+{
+  "heading": "$ ps aux --sort=start_time",
+  "positions": [
+    {
+      "pid": "1337",
+      "company": "Global Technology Solutions, United States",
+      "title": "Data Scientist – AI",
+      "location": "",
+      "startDate": "Jan 2025",
+      "endDate": "Present",
+      "status": "RUNNING",
+      "description": "Built production multi-agent systems using LangGraph and Google ADK, delivering 5+ agentic AI solutions across enterprise customer engagements.\nDesigned an ADK-powered rules agent that extracts requirements from uploaded documents and auto-generates portal forms, reducing manual form creation time by 85%.\nImplemented the Agent-to-Agent (A2A) protocol enabling orchestrated multi-agent collaboration, coordinating 3+ specialized agents per workflow.\nEngineered an agentic data analysis system integrating BigQuery and enterprise data sources, reducing manual reporting effort by 70% through automated insight generation.\nIntegrated MCP (Model Context Protocol) servers to connect AI agents with external tools and data sources, enabling seamless access to 10+ enterprise systems and APIs.",
+      "achievements": [
+        "Built production multi-agent systems using LangGraph and Google ADK, delivering 5+ agentic AI solutions across enterprise customer engagements.",
+        "Designed an ADK-powered rules agent that extracts requirements from uploaded documents and auto-generates portal forms, reducing manual form creation time by 85%.",
+        "Implemented the Agent-to-Agent (A2A) protocol enabling orchestrated multi-agent collaboration, coordinating 3+ specialized agents per workflow.",
+        "Engineered an agentic data analysis system integrating BigQuery and enterprise data sources, reducing manual reporting effort by 70% through automated insight generation.",
+        "Integrated MCP (Model Context Protocol) servers to connect AI agents with external tools and data sources, enabling seamless access to 10+ enterprise systems and APIs."
+      ],
+      "technologies": [
+        "LangGraph",
+        "Google ADK",
+        "BigQuery",
+        "MCP"
+      ]
+    },
+    {
+      "pid": "1237",
+      "company": "Global Technology Solutions, United States",
+      "title": "AI Data Engineer Intern",
+      "location": "",
+      "startDate": "Jan 2024",
+      "endDate": "Dec 2024",
+      "status": "STOPPED",
+      "description": "Built RAG-powered chatbots using AWS Bedrock and Google Vertex AI with LangChain, serving 3+ enterprise clients with agentic retrieval and tool-calling workflows.\nEngineered a custom vector storage solution on S3 replacing AWS OpenSearch Serverless, reducing vector database costs by 90%.\nDeveloped a database RAG system enabling LLMs to agentically query SQL databases, improving response accuracy by 30% over traditional vector-only retrieval on structured data.\nArchitected a RAG SaaS platform enabling customers to upload documents and deploy AI chat widgets on their websites, onboarding 5+ early adopters.",
+      "achievements": [
+        "Built RAG-powered chatbots using AWS Bedrock and Google Vertex AI with LangChain, serving 3+ enterprise clients with agentic retrieval and tool-calling workflows.",
+        "Engineered a custom vector storage solution on S3 replacing AWS OpenSearch Serverless, reducing vector database costs by 90%.",
+        "Developed a database RAG system enabling LLMs to agentically query SQL databases, improving response accuracy by 30% over traditional vector-only retrieval on structured data.",
+        "Architected a RAG SaaS platform enabling customers to upload documents and deploy AI chat widgets on their websites, onboarding 5+ early adopters."
+      ],
+      "technologies": [
+        "AWS Bedrock",
+        "Google Vertex AI",
+        "LangChain",
+        "S3",
+        "AWS OpenSearch Serverless",
+        "SQL"
+      ]
+    },
+    {
+      "pid": "1137",
+      "company": "VahVah, India",
+      "title": "Business Analyst",
+      "location": "",
+      "startDate": "Jun 2022",
+      "endDate": "Dec 2022",
+      "status": "STOPPED",
+      "description": "Collaborated with the digital marketing team to analyze lead quality and optimize targeting strategies, leading to more efficient sales calls.\nDeveloped Tableau dashboards and conducted behavioral analysis to provide actionable insights that improved sales agent performance.",
+      "achievements": [
+        "Collaborated with the digital marketing team to analyze lead quality and optimize targeting strategies, leading to more efficient sales calls.",
+        "Developed Tableau dashboards and conducted behavioral analysis to provide actionable insights that improved sales agent performance."
+      ],
+      "technologies": [
+        "Tableau"
+      ]
+    }
+  ]
+}

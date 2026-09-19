@@ -1,0 +1,21 @@
+{
+  "heading": "$ cat about.md",
+  "bio": [
+    ""
+  ],
+  "highlights": [
+    {
+      "label": "Years Experience",
+      "value": "1+"
+    },
+    {
+      "label": "Projects Completed",
+      "value": "0+"
+    },
+    {
+      "label": "Technologies",
+      "value": "18+"
+    }
+  ],
+  "currentFocus": "Data Scientist - AI"
+}

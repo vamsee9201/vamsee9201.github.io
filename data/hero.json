@@ -1,0 +1,49 @@
+{
+  "asciiName": [
+    "========================",
+    "  Vamsee Krishna Kotha  ",
+    "========================"
+  ],
+  "name": "Vamsee Krishna Kotha",
+  "tagline": "Available for work",
+  "roles": [
+    "Data Scientist - AI",
+    "Data Scientist – AI",
+    "AI Data Engineer Intern",
+    "Business Analyst"
+  ],
+  "bootSequence": [
+    "[OK] Loading kernel modules...",
+    "[OK] Initializing network interfaces...",
+    "[OK] Mounting filesystems...",
+    "[OK] Starting SSH daemon...",
+    "[OK] Loading portfolio data...",
+    "[OK] System ready."
+  ],
+  "techTags": [
+    "Python",
+    "SQL",
+    "R",
+    "Go",
+    "TypeScript",
+    "LangGraph"
+  ],
+  "socialLinks": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/vamsee9201",
+      "icon": "github"
+    },
+    {
+      "label": "Email",
+      "url": "mailto:vamseekrishna9201@gmail.com",
+      "icon": "email"
+    }
+  ],
+  "resumeUrl": "",
+  "stats": {
+    "experience": "1+ years",
+    "projects": 0,
+    "commits": "500+"
+  }
+}

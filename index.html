@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal Portfolio</title>
+  <meta name="description" content="Developer portfolio with a monochrome neo-brutalist aesthetic">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Matrix Rain Canvas (inverted: black on white) -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- CRT Overlay — disabled -->
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <!-- Boot Sequence — disabled for brutalist theme -->
+  <div id="boot-overlay">
+    <div id="boot-content"></div>
+  </div>
+
+  <!-- ============ Navigation ============ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" id="nav-logo"></a>
+      <ul class="nav-links" id="nav-links">
+        <!-- Populated by JS from navigation.json -->
+      </ul>
+      <button class="nav-toggle" id="nav-toggle">Menu</button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <!-- Populated by JS -->
+    </div>
+  </nav>
+
+  <!-- ============ Main Content ============ -->
+  <main>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+      <div class="hero-code-comment" id="hero-code-comment">
+        // portfolio.html<br>
+        // version: 3.0.0<br>
+        // status: production<br>
+        // last_build: <span id="hero-date"></span>
+      </div>
+
+      <div class="hero-line-numbers" id="hero-line-numbers"></div>
+
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span class="status-text" id="hero-tagline"></span>
+      </div>
+
+      <!-- ASCII Art Name — hidden in brutalist mode, using large text instead -->
+      <div class="ascii-name" id="ascii-name"></div>
+      <h1 class="hero-name glitch-text" id="hero-name" data-text=""></h1>
+
+      <div class="typewriter-wrap">
+        <span class="typewriter-bracket">&lt;&nbsp;</span>
+        <span class="typewriter-text" id="typewriter-text"></span>
+        <span class="typewriter-cursor">|</span>
+        <span class="typewriter-bracket">&nbsp;/&gt;</span>
+      </div>
+
+      <div class="tech-tags" id="tech-tags"></div>
+      <div class="social-links" id="social-links"></div>
+      <div id="hero-cta-wrap"></div>
+
+      <div class="hero-bottom-left" id="hero-bottom-left"></div>
+      <div class="hero-bottom-right" id="hero-bottom-right"></div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+      <h2 class="section-heading" id="about-heading"></h2>
+      <div class="about-content">
+        <div class="about-avatar-wrap" id="about-avatar-wrap">
+          <!-- Avatar populated by JS -->
+        </div>
+        <div>
+          <div class="about-bio" id="about-bio"></div>
+          <div class="about-highlights" id="about-highlights"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="section">
+      <h2 class="section-heading" id="experience-heading"></h2>
+      <div class="experience-list" id="experience-list"></div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section">
+      <h2 class="section-heading" id="skills-heading"></h2>
+
+      <!-- Desktop table — hidden in new design -->
+      <div class="skills-table-wrap">
+        <table class="skills-table" id="skills-table">
+          <thead><tr><th>Permissions</th><th>Owner</th><th>Size</th><th>Modified</th><th>Name</th></tr></thead>
+          <tbody id="skills-table-body"></tbody>
+        </table>
+      </div>
+
+      <!-- Card grid — new brutalist style -->
+      <div class="skills-card-grid" id="skills-card-grid"></div>
+
+      <!-- Mobile fallback -->
+      <div class="skills-grid" id="skills-grid"></div>
+
+      <!-- GitHub contribution graph -->
+      <div class="github-graph-section" id="github-graph-section">
+        <div class="github-graph-header">
+          <h4>Activity Graph</h4>
+          <div class="divider"></div>
+        </div>
+        <div class="github-graph">
+          <h3 class="github-graph-title">GitHub Activity</h3>
+          <div class="contribution-grid" id="contribution-grid"></div>
+          <div class="github-graph-footer">// contributions over last year</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section">
+      <h2 class="section-heading" id="projects-heading"></h2>
+      <div class="projects-grid" id="projects-grid"></div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="section">
+      <h2 class="section-heading" id="education-heading"></h2>
+      <div class="education-list" id="education-list"></div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+      <h2 class="section-heading" id="contact-heading"></h2>
+      <div class="contact-grid">
+        <div class="contact-info" id="contact-info"></div>
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <input type="text" id="form-name" placeholder=" " required>
+            <label for="form-name">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="form-email" placeholder=" " required>
+            <label for="form-email">Email Address</label>
+          </div>
+          <div class="form-group">
+            <textarea id="form-message" rows="5" placeholder=" " required></textarea>
+            <label for="form-message">Message</label>
+          </div>
+          <button type="submit" class="btn-submit">
+            <span>Send Message</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 2L11 13"></path>
+              <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer id="footer">
+    <!-- Marquee banner -->
+    <div class="footer-marquee">
+      <div class="footer-marquee-content" id="footer-marquee-text"></div>
+    </div>
+
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand" id="footer-brand"></div>
+          <div class="footer-tagline" id="footer-tagline"></div>
+        </div>
+        <div class="footer-links" id="footer-links"></div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copyright" id="footer-copyright"></span>
+        <button class="footer-scroll-top" id="scroll-top-btn">
+          Back to Top
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-left:4px;">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ Terminal Modal (Ctrl+K) ============ -->
+  <button id="terminal-fab" aria-label="Open Terminal">
+    <span class="terminal-fab-tooltip">Ctrl + K</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="4 17 10 11 4 5"></polyline>
+      <line x1="12" y1="19" x2="20" y2="19"></line>
+    </svg>
+  </button>
+
+  <div id="terminal-overlay">
+    <div class="terminal-window" id="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="terminal-dot red" id="terminal-close-dot"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title" id="terminal-host">guest@portfolio:~</span>
+        </div>
+        <button class="terminal-close" id="terminal-close-btn">&times;</button>
+      </div>
+      <div class="terminal-body" id="terminal-body">
+        <div class="cmd-response">
+          <p>Welcome to Portfolio Terminal v1.0.0</p>
+          <p>Type <span style="color:#28c840">help</span> for commands, or just chat with me.</p>
+        </div>
+      </div>
+      <div style="padding:0.5rem 1rem;border-top:1px solid rgba(255,255,255,0.1);">
+        <form id="terminal-form" class="terminal-input-line">
+          <span class="prompt-text" id="terminal-prompt">guest@portfolio:~$</span>
+          <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" autofocus>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

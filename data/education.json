@@ -1,0 +1,28 @@
+{
+  "heading": "$ cat /var/log/education.log",
+  "entries": [
+    {
+      "institution": "The University of Texas at Dallas",
+      "degree": "Master of Science",
+      "field": "Business Analytics and Artificial Intelligence",
+      "startDate": "Jan 2023",
+      "endDate": "Dec 2024",
+      "gpa": "",
+      "honors": []
+    },
+    {
+      "institution": "Vellore Institute of Technology (VIT), Andhra Pradesh, India",
+      "degree": "Bachelor of Technology",
+      "field": "Computer Science",
+      "startDate": "Jun 2018",
+      "endDate": "Jun 2022",
+      "gpa": "",
+      "honors": []
+    }
+  ],
+  "certifications": [
+    "Google Cloud Certified – Professional Machine Learning Engineer",
+    "Google Cloud Certified – Associate Cloud Engineer",
+    "Google Cloud Certified – Generative AI Leader"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "heading": "$ ls -la skills/",
+  "categories": [
+    {
+      "name": "languages",
+      "permissions": "drwxr-xr-x",
+      "items": [
+        "Python",
+        "SQL",
+        "R",
+        "Go",
+        "TypeScript"
+      ]
+    },
+    {
+      "name": "frameworks",
+      "permissions": "drwxr-xr-x",
+      "items": [
+        "LangGraph",
+        "ADK"
+      ]
+    },
+    {
+      "name": "tools",
+      "permissions": "drwxr-xr-x",
+      "items": [
+        "Claude Code",
+        "Cursor",
+        "FAISS",
+        "AOSS",
+        "Chroma",
+        "Git",
+        "CI/CD",
+        "Docker",
+        "Kubernetes"
+      ]
+    },
+    {
+      "name": "technical",
+      "permissions": "drwxr-xr-x",
+      "items": [
+        "AWS",
+        "GCP"
+      ]
+    }
+  ],
+  "githubUsername": "vamsee9201"
+}
