@@ -1,356 +1,124 @@
 {
-  "heading": "$ ls ~/projects --sort=impact",
-  "intro": "Twelve of my strongest AI and ML projects, each with a working repo. Most include measured results, not just a demo.",
+  "heading": "$ ls ~/projects",
+  "intro": "Nine repositories from Vamsee's GitHub account, covering ML operations, forecasting, fraud detection, security and data engineering. Where a project is based on someone else's open-source work, its card credits the original author.",
   "githubProfile": "https://github.com/vamsee9201",
   "repoCount": 69,
   "projects": [
     {
-      "name": "lean-rag",
-      "title": "Lean RAG",
-      "category": "RAG & LLMs",
-      "summary": "Can a fully local RAG stack match a cloud one? I paired every generator with every retriever, 20 combinations in all, and had each answer 50 sealed questions about public GovInfo documents. Two blinded model judges scored all 1,000 answers.",
-      "result": "Fine-tuned local Qwen 9B scored 81.0% to Gemini's 79.0% on the same evidence. The sample is too small to call it a win.",
-      "image": "assets/img/projects/lean-rag.webp",
-      "imageAlt": "Illustration of documents feeding a local chip and a cloud into a grid of twenty test combinations",
-      "technologies": [
-        "Python",
-        "Qwen 9B",
-        "LoRA",
-        "Hybrid retrieval",
-        "Vertex AI"
-      ],
-      "stars": 0,
-      "featured": true,
-      "githubUrl": "https://github.com/vamsee9201/lean-rag",
-      "links": [
-        {
-          "label": "Findings",
-          "url": "https://github.com/vamsee9201/lean-rag/blob/HEAD/FINDINGS.md",
-          "type": "doc"
-        },
-        {
-          "label": "Model",
-          "url": "https://huggingface.co/vamsee9201/qwen35-9b-local-hybrid-rag-lora",
-          "type": "model"
-        },
-        {
-          "label": "Retriever",
-          "url": "https://huggingface.co/vamsee9201/gte-modernbert-govinfo-retriever",
-          "type": "model"
-        }
-      ]
-    },
-    {
-      "name": "agent-to-agent-marketplace",
-      "title": "A2A Marketplace",
-      "category": "Agents",
-      "summary": "A purchasing concierge built with Google ADK finds and orders from vendor agents written in three different frameworks. They talk to each other over the Agent-to-Agent (A2A) protocol.",
-      "result": "3 frameworks, 1 protocol: ADK, LangGraph and CrewAI.",
-      "image": "assets/img/projects/agent-to-agent-marketplace.webp",
-      "imageAlt": "Illustration of three differently shaped robots trading messages around a market stall",
-      "technologies": [
-        "A2A",
-        "Google ADK",
-        "LangGraph",
-        "CrewAI",
-        "Python"
-      ],
-      "stars": 0,
-      "githubUrl": "https://github.com/vamsee9201/agent-to-agent-marketplace",
-      "links": []
-    },
-    {
-      "name": "deepeval-agent-evals",
-      "title": "Agent Evals with DeepEval",
-      "category": "Agent evals",
-      "summary": "Grades a tool-using, multi-turn travel agent end to end. The dashboard is generated from a real run and shows the judge's written reasoning for every metric.",
-      "result": "35 of 35 checks passed: 5 scenarios, 7 metrics each.",
-      "image": "assets/img/projects/deepeval-agent-evals.webp",
-      "imageAlt": "Illustration of a robot inspecting a wall of ticked checkboxes",
-      "technologies": [
-        "Google ADK",
-        "DeepEval",
-        "Gemini",
-        "Vertex AI",
-        "pytest"
-      ],
-      "stars": 0,
-      "githubUrl": "https://github.com/vamsee9201/deepeval-agent-evals",
-      "links": [
-        {
-          "label": "Live dashboard",
-          "url": "https://vamsee9201.github.io/deepeval-agent-evals/",
-          "type": "live"
-        }
-      ]
-    },
-    {
       "name": "driftguard",
       "title": "driftguard",
       "category": "MLOps",
-      "summary": "An ML lifecycle that watches itself: train, register in MLflow, serve with FastAPI, detect drift, retrain. It catches concept drift that feature-only monitors miss, tested on a real demand shift.",
-      "result": "Held-out MAE down 44.6% after automatic retraining.",
+      "summary": "An end-to-end ML lifecycle that monitors itself: train, register in MLflow, serve with FastAPI, detect drift, retrain. It is demonstrated on 2011 to 2012 bike-share demand, a shift that feature-only monitoring would miss.",
+      "result": "Reported in the repo: held-out MAE down 44.6% after automatic retraining.",
       "image": "assets/img/projects/driftguard.webp",
       "imageAlt": "Illustration of a drifting distribution above a loop of gauge, model and wrench",
-      "technologies": [
-        "Python",
-        "MLflow",
-        "FastAPI",
-        "Docker",
-        "PSI drift"
-      ],
-      "stars": 0,
+      "technologies": ["Python", "MLflow", "FastAPI", "Docker", "PSI drift"],
+      "featured": true,
       "githubUrl": "https://github.com/vamsee9201/driftguard",
-      "links": []
-    },
-    {
-      "name": "ai_soc",
-      "title": "AI-Augmented SOC",
-      "category": "Security AI",
-      "summary": "A research-grade security operations centre that runs locally. ML intrusion detection on CICIDS2017, LLM alert triage through Ollama, RAG over MITRE ATT&CK and CVE data, Wazuh ingestion and attack-campaign simulation.",
-      "result": "Alert triage runs on a local Ollama model, not a hosted API.",
-      "image": "assets/img/projects/ai_soc.webp",
-      "imageAlt": "Illustration of a shield containing a network graph with one flagged node",
-      "technologies": [
-        "Python",
-        "FastAPI",
-        "XGBoost",
-        "Ollama",
-        "Docker"
-      ],
-      "stars": 0,
-      "githubUrl": "https://github.com/vamsee9201/ai_soc",
-      "links": []
-    },
-    {
-      "name": "data-science-adk-agent",
-      "title": "Fieldnote",
-      "category": "Agents",
-      "summary": "Chat with a CSV. An ADK coordinator hands broader analysis and baseline modelling to an analyst agent. Every calculation runs through curated Python tools, so the model never executes code it wrote itself.",
-      "result": "Cleaning is previewed and confirmed; the original data is never changed.",
-      "image": "assets/img/projects/data-science-adk-agent.webp",
-      "imageAlt": "Illustration of a laptop showing a spreadsheet and a scatter plot beside a chat bubble",
-      "technologies": [
-        "Google ADK",
-        "FastAPI",
-        "scikit-learn",
-        "Gemini",
-        "Python"
-      ],
-      "stars": 0,
-      "githubUrl": "https://github.com/vamsee9201/data-science-adk-agent",
-      "links": []
-    },
-    {
-      "name": "adk-eval-suite-showcase",
-      "title": "ADK Eval Suite",
-      "category": "Agent evals",
-      "summary": "Runs every documented Google ADK evaluation method against one travel-concierge agent, and writes down the schema gotchas that only appear when you wire all of them together.",
-      "result": "All 11 criteria and all 3 runners, with the misses logged.",
-      "image": "assets/img/projects/adk-eval-suite-showcase.webp",
-      "imageAlt": "Illustration of a panel of eleven gauges tended by a robot arm",
-      "technologies": [
-        "Google ADK",
-        "Vertex AI",
-        "Gemini",
-        "pytest",
-        "Python"
-      ],
-      "stars": 0,
-      "githubUrl": "https://github.com/vamsee9201/adk-eval-suite-showcase",
       "links": []
     },
     {
       "name": "surecast",
       "title": "surecast",
       "category": "Forecasting",
-      "summary": "A day-ahead demand forecaster that says how confident it is and why. Conformalized quantile regression gives prediction intervals, SHAP explains each forecast, and rolling-origin backtests guard against leakage.",
-      "result": "Gradient boosting MAE 42.7 against 55.7 for a seasonal baseline.",
+      "summary": "A day-ahead bike-share demand forecaster that reports its uncertainty. Conformalized quantile regression gives prediction intervals, SHAP explains each forecast, and rolling-origin backtests guard against leakage. Includes a Streamlit dashboard.",
+      "result": "Reported: gradient boosting MAE 42.7 against 55.7 for a seasonal baseline.",
       "image": "assets/img/projects/surecast.webp",
       "imageAlt": "Illustration of a forecast line with a widening shaded prediction interval",
-      "technologies": [
-        "Python",
-        "Conformal prediction",
-        "SHAP",
-        "Streamlit",
-        "scikit-learn"
-      ],
-      "stars": 0,
+      "technologies": ["Python", "scikit-learn", "SHAP", "Streamlit", "Conformal prediction"],
       "githubUrl": "https://github.com/vamsee9201/surecast",
       "links": []
     },
     {
-      "name": "enterpriseclaw",
-      "title": "EnterpriseClaw",
-      "category": "Agents",
-      "summary": "A proof of concept for an enterprise AI coworker. A control plane owns identity, tenant boundaries, tool grants, approvals, audit history and cost limits around the agent runtime.",
-      "result": "The agent pauses before any write and waits for a human to approve.",
-      "image": "assets/img/projects/enterpriseclaw.webp",
-      "imageAlt": "Illustration of a robot passing a document through an approval turnstile to a bank of tools",
-      "technologies": [
-        "TypeScript",
-        "Prisma",
-        "Docker",
-        "pnpm"
-      ],
-      "stars": 0,
-      "githubUrl": "https://github.com/vamsee9201/enterpriseclaw",
+      "name": "creditcardfrauddetection-mlops",
+      "title": "Credit Card Fraud Detection",
+      "category": "Fraud detection",
+      "summary": "A Flask app for scoring card transactions. Pick logistic regression, random forest or XGBoost, enter a transaction, and get a fraud probability, a risk tier and a plain-language explanation from an LLM. Packaged with Docker.",
+      "result": "Three selectable models and low, medium and high risk tiers.",
+      "image": "assets/img/projects/creditcardfrauddetection-mlops.webp",
+      "imageAlt": "Illustration of a credit card under a magnifying glass beside a shipping container and a dashboard",
+      "technologies": ["Python", "Flask", "XGBoost", "Docker", "LangChain"],
+      "githubUrl": "https://github.com/vamsee9201/creditcardfrauddetection-mlops",
       "links": []
     },
-    {
-      "name": "claude-agent-sdk-cloud-sessions",
-      "title": "Claude Agent over HTTP",
-      "category": "Agents",
-      "summary": "Wraps the Claude Agent SDK in a REST API so any client can talk to a tool-using Claude agent. Chat sessions survive container restarts through a GCS-backed store mirrored to Firestore.",
-      "result": "Persistent multi-turn sessions on Cloud Run.",
-      "image": "assets/img/projects/claude-agent-sdk-cloud-sessions.webp",
-      "imageAlt": "Illustration of a cloud holding a terminal above a stack of session cards and a database",
-      "technologies": [
-        "Claude Agent SDK",
-        "FastAPI",
-        "Cloud Run",
-        "Firestore",
-        "Docker"
-      ],
-      "stars": 3,
-      "githubUrl": "https://github.com/vamsee9201/claude-agent-sdk-cloud-sessions",
-      "links": []
-    },
-    {
-      "name": "llm-finetune-demo",
-      "title": "QLoRA Fine-tune",
-      "category": "Fine-tuning",
-      "summary": "Fine-tunes Qwen3 1.7B with Unsloth and QLoRA so every answer comes back in Shakespearean English. Trained on 25 hand-written examples in about 90 seconds on a free Colab T4.",
-      "result": "Training loss fell from 7.40 to 0.10 in 60 steps.",
-      "image": "assets/img/projects/llm-finetune-demo.webp",
-      "imageAlt": "Illustration of a large weight matrix combined with two thin low-rank matrices and a quill",
-      "technologies": [
-        "Qwen3",
-        "Unsloth",
-        "QLoRA",
-        "Python",
-        "Colab"
-      ],
-      "stars": 0,
-      "githubUrl": "https://github.com/vamsee9201/llm-finetune-demo",
-      "links": []
-    },
-    {
-      "name": "zenith-sky",
-      "title": "Zenith Sky",
-      "category": "Applied AI",
-      "summary": "A phone-first app that shows which satellites are overhead right now, predicts tonight's visible passes, and uses grounded AI on Vertex AI to explain each object in plain language.",
-      "result": "Positions refresh every five seconds.",
-      "image": "assets/img/projects/zenith-sky.webp",
-      "imageAlt": "Illustration of a sky dome plot with satellites on orbit arcs and a phone in the corner",
-      "technologies": [
-        "Next.js",
-        "TypeScript",
-        "Vertex AI",
-        "satellite.js"
-      ],
-      "stars": 0,
-      "githubUrl": "https://github.com/vamsee9201/zenith-sky",
-      "links": []
-    }
-  ],
-  "moreHeading": "Also built",
-  "more": [
     {
       "name": "modelcard",
-      "summary": "Generates a deterministic Markdown model card from a scikit-learn estimator and its metrics, so the docs can be diffed in CI.",
-      "technologies": [
-        "Python",
-        "scikit-learn"
-      ],
-      "githubUrl": "https://github.com/vamsee9201/modelcard"
-    },
-    {
-      "name": "creditcardfrauddetection-mlops",
-      "summary": "Fraud detection with logistic regression, random forest and XGBoost behind a Flask app, containerised, with LLM-written explanations.",
-      "technologies": [
-        "Flask",
-        "XGBoost",
-        "Docker",
-        "LangChain"
-      ],
-      "githubUrl": "https://github.com/vamsee9201/creditcardfrauddetection-mlops"
+      "title": "modelcard",
+      "category": "MLOps",
+      "summary": "Generates a deterministic Markdown model card from a scikit-learn estimator and its metrics, as a library and a command-line tool. Identical inputs give byte-identical output, so cards can be diffed in CI.",
+      "result": "Runs fully offline; the demo uses scikit-learn's bundled Iris data.",
+      "image": "assets/img/projects/modelcard.webp",
+      "imageAlt": "Illustration of a model feeding an arrow into a card with feature-importance bars",
+      "technologies": ["Python", "scikit-learn", "CLI", "uv"],
+      "githubUrl": "https://github.com/vamsee9201/modelcard",
+      "links": []
     },
     {
       "name": "fraud-detection-in-python",
-      "summary": "Decision-tree fraud classifier on 594,643 simulated bank transactions, 7,200 of them fraudulent. A data-mining course project.",
-      "technologies": [
-        "Python",
-        "Jupyter"
-      ],
-      "githubUrl": "https://github.com/vamsee9201/fraud-detection-in-python"
-    },
-    {
-      "name": "claude-agent-sdk-vertex-ai",
-      "summary": "A Claude Agent SDK agent that uses Vertex AI as its model provider, for teams that need to stay inside GCP.",
-      "technologies": [
-        "Python",
-        "Vertex AI"
-      ],
-      "githubUrl": "https://github.com/vamsee9201/claude-agent-sdk-vertex-ai"
-    },
-    {
-      "name": "agenticAI",
-      "summary": "Early agent experiments: ReAct, SQL and BigQuery agents, and memory-backed agentic RAG.",
-      "technologies": [
-        "Python",
-        "BigQuery",
-        "SQL"
-      ],
-      "githubUrl": "https://github.com/vamsee9201/agenticAI"
+      "title": "Fraud Detection in Python",
+      "category": "Fraud detection",
+      "summary": "Compares fraud classifiers on 594,643 simulated bank transactions, 7,200 of them fraudulent: naive Bayes, logistic regression, a neural network, a decision tree and a random forest.",
+      "result": "Reported: decision tree precision 0.90, recall 0.72.",
+      "credit": "Originally developed for CSE 891 Data Mining at Michigan State University by Baylee Adams and Kyle Shope, per the repo README.",
+      "image": "assets/img/projects/fraud-detection-in-python.webp",
+      "imageAlt": "Illustration of a decision tree with one leaf under a magnifying glass beside a stack of transaction slips",
+      "technologies": ["Python", "Jupyter", "pandas"],
+      "githubUrl": "https://github.com/vamsee9201/fraud-detection-in-python",
+      "links": []
     },
     {
       "name": "text-analysis-using-nlp-streamlit",
-      "summary": "Streamlit app for text preprocessing, sentiment analysis, named-entity recognition and word clouds.",
-      "technologies": [
-        "Python",
-        "NLP",
-        "Streamlit"
-      ],
-      "githubUrl": "https://github.com/vamsee9201/text-analysis-using-nlp-streamlit"
+      "title": "Text Analysis with NLP",
+      "category": "NLP",
+      "summary": "A Streamlit app for text preprocessing, sentiment analysis, named-entity recognition, part-of-speech tagging and word clouds.",
+      "result": "Parameters for each task can be adjusted in the interface.",
+      "credit": "Based on Text-Analysis-Using-NLP-Streamlit by Mohammadreza Mohammadi (MIT license).",
+      "creditUrl": "https://github.com/mohammadreza-mohammadi94/Text-Analysis-Using-NLP-Streamlit",
+      "image": "assets/img/projects/text-analysis-using-nlp-streamlit.webp",
+      "imageAlt": "Illustration of a page with highlighted words, a sentiment bubble and a word cloud",
+      "technologies": ["Python", "Streamlit", "NLP"],
+      "githubUrl": "https://github.com/vamsee9201/text-analysis-using-nlp-streamlit",
+      "links": []
     },
     {
-      "name": "deep_learning_projects",
-      "summary": "Pneumonia detection with PyTorch, worked through in a notebook.",
-      "technologies": [
-        "PyTorch",
-        "Jupyter"
-      ],
-      "githubUrl": "https://github.com/vamsee9201/deep_learning_projects"
+      "name": "ai_soc",
+      "title": "AI-Augmented SOC",
+      "category": "Security AI",
+      "summary": "A research-grade, AI-assisted security operations centre. ML intrusion detection on CICIDS2017 features, LLM alert triage through Ollama, RAG over MITRE ATT&CK and CVE data, Wazuh ingestion and attack-campaign simulation.",
+      "result": "Local-first: alert triage runs on a local Ollama model, not a hosted API.",
+      "credit": "Based on AI_SOC by Abdul Bari (Apache-2.0 license).",
+      "creditUrl": "https://github.com/zhadyz/AI_SOC",
+      "image": "assets/img/projects/ai_soc.webp",
+      "imageAlt": "Illustration of a shield containing a network graph with one flagged node",
+      "technologies": ["Python", "FastAPI", "XGBoost", "Ollama", "Docker"],
+      "githubUrl": "https://github.com/vamsee9201/ai_soc",
+      "links": []
     },
     {
-      "name": "document_rag_demo",
-      "summary": "An early RAG demo that answers questions about a requirements document, with a Streamlit front end.",
-      "technologies": [
-        "Python",
-        "OpenAI",
-        "Streamlit"
-      ],
-      "githubUrl": "https://github.com/vamsee9201/document_rag_demo"
+      "name": "infohunter",
+      "title": "InfoHunter",
+      "category": "Security",
+      "summary": "A modular open-source-intelligence toolkit for usernames, emails and domains. It draws on sources such as Sherlock, Maigret, Holehe, HIBP, WHOIS and Shodan, and writes PDF or JSON reports.",
+      "result": "Interactive and command-line modes.",
+      "image": "assets/img/projects/infohunter.webp",
+      "imageAlt": "Illustration of a magnifying glass over a network of profile cards, a globe and an envelope",
+      "technologies": ["Python", "OSINT", "CLI", "Streamlit"],
+      "githubUrl": "https://github.com/vamsee9201/infohunter",
+      "links": []
     },
     {
-      "name": "databricks-s3-pipeline",
-      "summary": "PySpark ETL on Databricks that reads and writes Amazon S3 using a medallion architecture.",
-      "technologies": [
-        "PySpark",
-        "Databricks",
-        "AWS S3"
-      ],
-      "githubUrl": "https://github.com/vamsee9201/databricks-s3-pipeline"
-    },
-    {
-      "name": "pyspark-showcase",
-      "summary": "PySpark practice: clustering on a diabetes dataset and a set of Spark challenges.",
-      "technologies": [
-        "PySpark",
-        "Python"
-      ],
-      "githubUrl": "https://github.com/vamsee9201/pyspark-showcase"
+      "name": "goodreads_etl_pipeline",
+      "title": "Goodreads Data Pipeline",
+      "category": "Data engineering",
+      "summary": "A batch pipeline for Goodreads data. A Python API wrapper lands files in S3, Spark jobs transform them, Redshift stores the results, and Airflow schedules runs and data-quality checks.",
+      "result": "Spark jobs are scheduled in Airflow to run every 10 minutes.",
+      "credit": "Based on goodreads_etl_pipeline by Sanchit Kumar (MIT license).",
+      "creditUrl": "https://github.com/san089/goodreads_etl_pipeline",
+      "image": "assets/img/projects/goodreads_etl_pipeline.webp",
+      "imageAlt": "Illustration of books flowing through cloud storage, a processing engine and a scheduler into a warehouse",
+      "technologies": ["Python", "Spark", "Airflow", "S3", "Redshift"],
+      "githubUrl": "https://github.com/vamsee9201/goodreads_etl_pipeline",
+      "links": []
     }
   ]
 }

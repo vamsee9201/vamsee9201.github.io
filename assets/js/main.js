@@ -267,8 +267,7 @@
     if (brEl && heroData.stats) {
       brEl.innerHTML =
         '<p>const experience = "' + esc(heroData.stats.experience || '0') + '";</p>' +
-        '<p>const repos = ' + (heroData.stats.repos || 0) + ';</p>' +
-        '<p>const contributions = ' + (heroData.stats.contributions || 0) + '; // last 12 months</p>';
+        '<p>const projects = ' + (heroData.stats.projects || 0) + ';</p>';
     }
 
     // Typewriter
@@ -397,7 +396,7 @@
   }
 
   // ─── Skills Section (Card Grid) ─────────────────
-  function renderSkills(skillsData, contribData) {
+  function renderSkills(skillsData) {
     if (!skillsData) return;
 
     var heading = $('skills-heading');
@@ -418,27 +417,6 @@
       }).join('');
     }
 
-    // GitHub contribution graph (real data, snapshot in data/contributions.json)
-    var contribGrid = $('contribution-grid');
-    if (contribGrid) {
-      var weeksData = contribData && contribData.weeks;
-      if (weeksData && weeksData.length) {
-        contribGrid.innerHTML = weeksData.map(function (week) {
-          return '<div class="contribution-week">' + week.map(function (n) {
-            var level = n === 0 ? 0 : n === 1 ? 1 : n <= 3 ? 2 : n <= 6 ? 3 : 4;
-            return '<div class="contribution-cell level-' + level + '" title="' + n + (n === 1 ? ' contribution' : ' contributions') + '"></div>';
-          }).join('') + '</div>';
-        }).join('');
-        var cap = $('contribution-caption');
-        if (cap) {
-          var asOf = (contribData.generated || '').slice(0, 10);
-          cap.textContent = '// ' + contribData.total + ' contributions in the last 12 months, public and private repos' + (asOf ? ' (as of ' + asOf + ')' : '');
-        }
-      } else {
-        var section = $('github-graph-section');
-        if (section) section.style.display = 'none';
-      }
-    }
   }
 
   // ─── Projects Section ───────────────────────────
@@ -481,6 +459,7 @@
           '<h3 class="project-title">' + esc(title) + stars + '</h3>' +
           '<p class="project-repo">' + esc('vamsee9201/' + proj.name) + '</p>' +
           '<p class="project-description">' + esc(proj.summary) + '</p>' +
+          (proj.credit ? '<p class="project-credit">' + (proj.creditUrl ? '<a href="' + esc(proj.creditUrl) + '" target="_blank" rel="noopener noreferrer">' + esc(proj.credit) + '</a>' : esc(proj.credit)) + '</p>' : '') +
           (proj.result ? '<p class="project-result">' + esc(proj.result) + '</p>' : '') +
           techHTML +
           projectLinks(proj) +
@@ -825,7 +804,7 @@
 
   // ─── Main Init ──────────────────────────────────
   async function init() {
-    var [siteConfig, navData, heroData, aboutData, expData, skillsData, projData, eduData, contactData, footerData, contribData] =
+    var [siteConfig, navData, heroData, aboutData, expData, skillsData, projData, eduData, contactData, footerData] =
       await Promise.all([
         loadJSON('site-config.json'),
         loadJSON('navigation.json'),
@@ -837,7 +816,6 @@
         loadJSON('education.json'),
         loadJSON('contact.json'),
         loadJSON('footer.json'),
-        loadJSON('contributions.json'),
       ]);
 
     if (siteConfig && siteConfig.siteName) document.title = siteConfig.siteName;
@@ -854,7 +832,7 @@
     renderHero(heroData, siteConfig);
     renderAbout(aboutData, heroData);
     renderExperience(expData);
-    renderSkills(skillsData, contribData);
+    renderSkills(skillsData);
     renderProjects(projData);
     renderEducation(eduData);
     renderContact(contactData);

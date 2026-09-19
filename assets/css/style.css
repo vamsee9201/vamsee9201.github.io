@@ -1200,6 +1200,19 @@ a.project-card:hover {
   color: rgba(0, 0, 0, 0.75);
 }
 
+.project-credit {
+  margin-bottom: 0.9rem;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.project-credit a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--text-secondary);
+}
+
 .project-result {
   margin-bottom: 1rem;
   padding-left: 0.75rem;
