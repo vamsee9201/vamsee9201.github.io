@@ -18,6 +18,7 @@
     terminal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>',
     star: '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none" width="12" height="12"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
     fork: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><circle cx="12" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9"/><path d="M12 12v3"/></svg>',
+    huggingface: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5c1 1.5 2 2 3.5 2s2.5-.5 3.5-2"/><circle cx="9" cy="10" r=".6" fill="currentColor"/><circle cx="15" cy="10" r=".6" fill="currentColor"/></svg>',
     mapPin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
     phone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
   };
@@ -266,8 +267,8 @@
     if (brEl && heroData.stats) {
       brEl.innerHTML =
         '<p>const experience = "' + esc(heroData.stats.experience || '0') + '";</p>' +
-        '<p>const projects = ' + (heroData.stats.projects || 0) + ';</p>' +
-        '<p>const commits = "' + esc(heroData.stats.commits || '0') + '";</p>';
+        '<p>const repos = ' + (heroData.stats.repos || 0) + ';</p>' +
+        '<p>const contributions = ' + (heroData.stats.contributions || 0) + '; // last 12 months</p>';
     }
 
     // Typewriter
@@ -388,8 +389,7 @@
             '<span>' + esc(pos.startDate) + ' - ' + esc(pos.endDate || 'Present') + '</span>' +
             (pos.location ? '<span>' + esc(pos.location) + '</span>' : '') +
           '</div>' +
-          '<div class="exp-description">' + esc(pos.description) + '</div>' +
-          achieveHTML +
+          (achieveHTML ? achieveHTML : '<div class="exp-description">' + esc(pos.description) + '</div>') +
           techHTML +
         '</div>' +
       '</div>';
@@ -397,7 +397,7 @@
   }
 
   // ─── Skills Section (Card Grid) ─────────────────
-  function renderSkills(skillsData) {
+  function renderSkills(skillsData, contribData) {
     if (!skillsData) return;
 
     var heading = $('skills-heading');
@@ -418,61 +418,97 @@
       }).join('');
     }
 
-    // GitHub contribution graph (monochrome)
+    // GitHub contribution graph (real data, snapshot in data/contributions.json)
     var contribGrid = $('contribution-grid');
     if (contribGrid) {
-      var weeks = 52;
-      var html = '';
-      for (var w = 0; w < weeks; w++) {
-        html += '<div class="contribution-week">';
-        for (var d = 0; d < 7; d++) {
-          var level = Math.random() < 0.3 ? 0 : Math.floor(Math.random() * 5);
-          html += '<div class="contribution-cell level-' + level + '"></div>';
+      var weeksData = contribData && contribData.weeks;
+      if (weeksData && weeksData.length) {
+        contribGrid.innerHTML = weeksData.map(function (week) {
+          return '<div class="contribution-week">' + week.map(function (n) {
+            var level = n === 0 ? 0 : n === 1 ? 1 : n <= 3 ? 2 : n <= 6 ? 3 : 4;
+            return '<div class="contribution-cell level-' + level + '" title="' + n + (n === 1 ? ' contribution' : ' contributions') + '"></div>';
+          }).join('') + '</div>';
+        }).join('');
+        var cap = $('contribution-caption');
+        if (cap) {
+          var asOf = (contribData.generated || '').slice(0, 10);
+          cap.textContent = '// ' + contribData.total + ' contributions in the last 12 months, public and private repos' + (asOf ? ' (as of ' + asOf + ')' : '');
         }
-        html += '</div>';
+      } else {
+        var section = $('github-graph-section');
+        if (section) section.style.display = 'none';
       }
-      contribGrid.innerHTML = html;
     }
   }
 
   // ─── Projects Section ───────────────────────────
+  function projectLinks(proj) {
+    var html = '<div class="project-links">';
+    if (proj.githubUrl) html += '<a href="' + esc(proj.githubUrl) + '" target="_blank" rel="noopener noreferrer" class="project-link">' + icon('github') + ' Source</a>';
+    (proj.links || []).forEach(function (l) {
+      var ic = l.type === 'model' ? icon('huggingface') : icon('external');
+      html += '<a href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer" class="project-link project-link--alt">' + ic + ' ' + esc(l.label) + '</a>';
+    });
+    return html + '</div>';
+  }
+
   function renderProjects(projData) {
     if (!projData) return;
 
     var heading = $('projects-heading');
     if (heading) heading.textContent = 'Projects.';
 
+    var intro = $('projects-intro');
+    if (intro && projData.intro) intro.textContent = projData.intro;
+
     var grid = $('projects-grid');
     if (!grid) return;
 
-    grid.innerHTML = (projData.projects || []).map(function (proj) {
-      var langClass = 'lang-dot-' + (proj.language || 'default').toLowerCase().replace(/[^a-z]/g, '');
-      var newBadge = proj.isNew ? '<span class="new-badge">Latest Work</span>' : '';
-
-      var techHTML = '<div class="project-technologies">' +
+    var cards = (projData.projects || []).map(function (proj) {
+      var title = proj.title || proj.name;
+      var techHTML = '<ul class="project-technologies">' +
         (proj.technologies || []).map(function (t) {
-          return '<span class="project-tech-badge">' + esc(t) + '</span>';
-        }).join('') +
-        '</div>';
+          return '<li class="project-tech-badge">' + esc(t) + '</li>';
+        }).join('') + '</ul>';
+      var stars = proj.stars ? '<span class="project-stars">' + icon('star') + ' ' + proj.stars + '</span>' : '';
 
-      var metaHTML = '<div class="project-meta">';
-      if (proj.stars != null) metaHTML += '<span class="stars">' + icon('star') + ' ' + proj.stars + '</span>';
-      if (proj.forks != null) metaHTML += '<span class="forks">' + icon('fork') + ' ' + proj.forks + '</span>';
-      if (proj.language) metaHTML += '<span>' + esc(proj.language) + '</span>';
-      metaHTML += '</div>';
+      return '<article class="project-card' + (proj.featured ? ' project-card--feature' : '') + '">' +
+        '<a class="project-media" href="' + esc(proj.githubUrl) + '" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">' +
+          '<img src="' + esc(proj.image) + '" alt="" width="1200" height="800" loading="lazy" decoding="async">' +
+          '<span class="project-category">' + esc(proj.category) + '</span>' +
+        '</a>' +
+        '<div class="project-body">' +
+          '<h3 class="project-title">' + esc(title) + stars + '</h3>' +
+          '<p class="project-repo">' + esc('vamsee9201/' + proj.name) + '</p>' +
+          '<p class="project-description">' + esc(proj.summary) + '</p>' +
+          (proj.result ? '<p class="project-result">' + esc(proj.result) + '</p>' : '') +
+          techHTML +
+          projectLinks(proj) +
+        '</div>' +
+      '</article>';
+    });
 
-      var linksHTML = '<div class="project-links">';
-      if (proj.githubUrl) linksHTML += '<a href="' + esc(proj.githubUrl) + '" target="_blank" rel="noopener noreferrer" class="project-link">' + icon('github') + ' Source</a>';
-      if (proj.liveUrl) linksHTML += '<a href="' + esc(proj.liveUrl) + '" target="_blank" rel="noopener noreferrer" class="project-link">' + icon('external') + ' Live Demo</a>';
-      linksHTML += '</div>';
+    if (projData.githubProfile) {
+      cards.push('<a class="project-card project-card--cta" href="' + esc(projData.githubProfile) + '?tab=repositories" target="_blank" rel="noopener noreferrer">' +
+        '<span class="project-cta-count">' + esc(projData.repoCount || '') + '</span>' +
+        '<span class="project-cta-title">public repositories on GitHub</span>' +
+        '<span class="project-cta-copy">Coursework, experiments and earlier work live there too.</span>' +
+        '<span class="project-cta-link">' + icon('github') + ' Browse all repositories</span>' +
+      '</a>');
+    }
+    grid.innerHTML = cards.join('');
 
-      return '<div class="project-card">' +
-        newBadge +
-        '<div class="project-name"><span class="lang-dot ' + langClass + '"></span>' + esc(proj.name) + '</div>' +
-        '<div class="project-description">' + esc(proj.description) + '</div>' +
-        metaHTML + techHTML + linksHTML +
-      '</div>';
-    }).join('');
+    var more = $('projects-more');
+    if (more && projData.more && projData.more.length) {
+      more.innerHTML = '<h3 class="more-heading">' + esc(projData.moreHeading || 'Also built') + '</h3>' +
+        '<ul class="more-grid">' + projData.more.map(function (m) {
+          return '<li><a class="more-item" href="' + esc(m.githubUrl) + '" target="_blank" rel="noopener noreferrer">' +
+            '<span class="more-name">' + esc(m.name) + '</span>' +
+            '<span class="more-summary">' + esc(m.summary) + '</span>' +
+            '<span class="more-tech">' + (m.technologies || []).map(esc).join(', ') + '</span>' +
+          '</a></li>';
+        }).join('') + '</ul>';
+    }
   }
 
   // ─── Education Section ──────────────────────────
@@ -622,7 +658,7 @@
     if (marquee) {
       var heroName = (heroData && heroData.name) || 'Developer';
       var roles = (heroData && heroData.roles) ? heroData.roles.join(' | ') : 'Software Engineer';
-      var text = heroName + ' &nbsp;&bull;&nbsp; ' + roles + ' &nbsp;&bull;&nbsp; Designing clean UI/UX &nbsp;&bull;&nbsp; Open to opportunities &nbsp;&bull;&nbsp; ';
+      var text = heroName + ' &nbsp;&bull;&nbsp; ' + roles + ' &nbsp;&bull;&nbsp; Agentic AI &nbsp;&bull;&nbsp; RAG &nbsp;&bull;&nbsp; MLOps &nbsp;&bull;&nbsp; Open to opportunities &nbsp;&bull;&nbsp; ';
       marquee.innerHTML = text + text; // Duplicate for seamless scroll
     }
 
@@ -674,7 +710,7 @@
         if (!projData || !projData.projects) return 'No projects data.';
         return projData.projects.map(function (p, i) {
           var url = p.githubUrl || '#projects';
-          return '<a href="' + esc(url) + '" target="_blank" class="cmd-link">' + (i + 1) + '. ' + esc(p.name) + '</a>';
+          return '<a href="' + esc(url) + '" target="_blank" class="cmd-link">' + (i + 1) + '. ' + esc(p.title || p.name) + '</a>';
         }).join('<br>');
       },
       contact: function () {
@@ -757,7 +793,7 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
 
     sections.forEach(function (s) { observer.observe(s); });
   }
@@ -789,7 +825,7 @@
 
   // ─── Main Init ──────────────────────────────────
   async function init() {
-    var [siteConfig, navData, heroData, aboutData, expData, skillsData, projData, eduData, contactData, footerData] =
+    var [siteConfig, navData, heroData, aboutData, expData, skillsData, projData, eduData, contactData, footerData, contribData] =
       await Promise.all([
         loadJSON('site-config.json'),
         loadJSON('navigation.json'),
@@ -801,6 +837,7 @@
         loadJSON('education.json'),
         loadJSON('contact.json'),
         loadJSON('footer.json'),
+        loadJSON('contributions.json'),
       ]);
 
     if (siteConfig && siteConfig.siteName) document.title = siteConfig.siteName;
@@ -817,7 +854,7 @@
     renderHero(heroData, siteConfig);
     renderAbout(aboutData, heroData);
     renderExperience(expData);
-    renderSkills(skillsData);
+    renderSkills(skillsData, contribData);
     renderProjects(projData);
     renderEducation(eduData);
     renderContact(contactData);

@@ -1,21 +1,23 @@
 {
   "heading": "$ cat about.md",
   "bio": [
-    ""
+    "I build agentic AI systems for enterprise customers. At Global Technology Solutions I have shipped 5+ multi-agent solutions with LangGraph and Google ADK, connected to company data and tools through MCP and the A2A protocol.",
+    "Before that I built RAG chatbots on AWS Bedrock and Google Vertex AI, including a vector store on S3 that cut vector database costs by 90%.",
+    "On my own time I run experiments and publish the results: local versus cloud RAG, agent evaluation, drift detection, and forecasting with honest uncertainty. The projects below are the strongest of them."
   ],
   "highlights": [
     {
-      "label": "Years Experience",
-      "value": "1+"
+      "label": "Years in AI/ML",
+      "value": "3+"
     },
     {
-      "label": "Projects Completed",
-      "value": "0+"
+      "label": "Featured Projects",
+      "value": "12"
     },
     {
       "label": "Technologies",
-      "value": "18+"
+      "value": "35+"
     }
   ],
-  "currentFocus": "Data Scientist - AI"
+  "currentFocus": "Data Scientist – AI"
 }

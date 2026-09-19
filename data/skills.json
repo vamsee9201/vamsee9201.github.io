@@ -13,11 +13,52 @@
       ]
     },
     {
-      "name": "frameworks",
+      "name": "agents & llms",
       "permissions": "drwxr-xr-x",
       "items": [
         "LangGraph",
-        "ADK"
+        "Google ADK",
+        "CrewAI",
+        "LangChain",
+        "MCP",
+        "A2A",
+        "Claude Agent SDK",
+        "DeepEval"
+      ]
+    },
+    {
+      "name": "rag & retrieval",
+      "permissions": "drwxr-xr-x",
+      "items": [
+        "FAISS",
+        "Chroma",
+        "BM25",
+        "Hybrid retrieval",
+        "OpenSearch Serverless"
+      ]
+    },
+    {
+      "name": "ml & mlops",
+      "permissions": "drwxr-xr-x",
+      "items": [
+        "scikit-learn",
+        "XGBoost",
+        "PyTorch",
+        "MLflow",
+        "SHAP",
+        "QLoRA"
+      ]
+    },
+    {
+      "name": "cloud & data",
+      "permissions": "drwxr-xr-x",
+      "items": [
+        "AWS Bedrock",
+        "Vertex AI",
+        "BigQuery",
+        "Cloud Run",
+        "Databricks",
+        "PySpark"
       ]
     },
     {
@@ -26,21 +67,10 @@
       "items": [
         "Claude Code",
         "Cursor",
-        "FAISS",
-        "AOSS",
-        "Chroma",
         "Git",
         "CI/CD",
         "Docker",
         "Kubernetes"
-      ]
-    },
-    {
-      "name": "technical",
-      "permissions": "drwxr-xr-x",
-      "items": [
-        "AWS",
-        "GCP"
       ]
     }
   ],

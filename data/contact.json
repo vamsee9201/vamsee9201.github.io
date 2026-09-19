@@ -5,6 +5,9 @@
   "phone": "469-504-6242",
   "location": "Wylie, TX",
   "availability": "Open to opportunities",
-  "socialLinks": {},
+  "socialLinks": {
+    "github": "https://github.com/vamsee9201",
+    "huggingface": "https://huggingface.co/vamsee9201"
+  },
   "formAction": ""
 }

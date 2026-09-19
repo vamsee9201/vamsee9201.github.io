@@ -4,6 +4,16 @@
   "tagline": "Built with vanilla HTML/CSS/JS. No frameworks harmed.",
   "links": [
     {
+      "label": "GitHub",
+      "url": "https://github.com/vamsee9201",
+      "icon": "github"
+    },
+    {
+      "label": "Hugging Face",
+      "url": "https://huggingface.co/vamsee9201",
+      "icon": "huggingface"
+    },
+    {
       "label": "Email",
       "url": "mailto:vamseekrishna9201@gmail.com",
       "icon": "email"
